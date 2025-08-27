@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЗВЁЗДНЫЙ СКИТАЛЕЦ | СТАНЦИЯ ЭПСИЛОН</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Canvas для анимированного фона -->
+    <canvas id="bg-canvas"></canvas>
+    
+    <!-- Эффект помех поверх всего -->
+    <div id="interference"></div>
+    
+    <!-- Эффект сканирующих линий -->
+    <div id="scanlines"></div>
+    
+    <!-- Эффект виньетки (затемнение по краям) -->
+    <div id="vignette"></div>
+
     <div id="terminal">
         <div id="output"></div>
         <div id="input-line">
@@ -16,8 +29,8 @@
     </div>
 
     <div id="splash-screen">
-        <h1>ЗВЁЗДНЫЙ СКИТАЛЕЦ</h1>
-        <p>// СИСТЕМА ЗАГРУЗКИ ИНИЦИИРОВАНА</p>
+        <h1 data-text="ЗВЁЗДНЫЙ СКИТАЛЕЦ">ЗВЁЗДНЫЙ СКИТАЛЕЦ</h1>
+        <p>> СИСТЕМА ЗАГРУЗКИ ИНИЦИИРОВАНА</p>
         <p>> ПОДКЛЮЧЕНИЕ К СТАНЦИИ "ЭПСИЛОН"...</p>
         <button id="start-btn">[ УСТАНОВИТЬ СВЯЗЬ ]</button>
     </div>
