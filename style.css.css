@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0a0a0a;
+    color: #00ff00; /* Классический зелёный терминала */
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    line-height: 1.4;
+    height: 100vh;
+    overflow: hidden;
+    text-shadow: 0 0 5px #00ff00;
+}
+
+/* Эффект сканирующих линий */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 100;
+}
+
+#splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+#splash-screen h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    animation: glitch 5s infinite;
+}
+
+#splash-screen p {
+    margin: 0.5rem 0;
+    opacity: 0.8;
+}
+
+#start-btn {
+    background: transparent;
+    border: 1px solid #00ff00;
+    color: #00ff00;
+    padding: 10px 20px;
+    margin-top: 2rem;
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#start-btn:hover {
+    background-color: #00ff00;
+    color: black;
+    box-shadow: 0 0 10px #00ff00;
+}
+
+#terminal {
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+#output {
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    max-height: 90vh;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+.prompt {
+    margin-right: 10px;
+    color: #00ff00;
+}
+
+#command-input {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #00ff00;
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    width: 100%;
+    caret-color: #00ff00;
+}
+
+.message {
+    margin-bottom: 0.7rem;
+    white-space: pre-wrap; /* Сохраняет пробелы и переносы */
+}
+
+.message.ai {
+    color: #00ff00;
+}
+
+.message.system {
+    color: #ff9900;
+}
+
+.message.glitch {
+    animation: glitch 0.5s infinite;
+    color: #ff00ff;
+}
+
+@keyframes glitch {
+    0% { text-shadow: 2px 0 0 cyan, -2px 0 0 magenta; }
+    50% { text-shadow: -2px 0 0 cyan, 2px 0 0 magenta; }
+    100% { text-shadow: 2px 0 0 cyan, -2px 0 0 magenta; }
+}
+
+.typewriter {
+    overflow: hidden;
+    border-right: 0.15em solid #00ff00; /* Эффект курсора */
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.05em;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
