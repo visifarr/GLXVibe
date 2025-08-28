@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ЗВЁЗДНЫЙ СКИТАЛЕЦ | СТАНЦИЯ ЭПСИЛОН</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <title>Анимированный Кликер</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Canvas для анимированного фона -->
-    <canvas id="bg-canvas"></canvas>
-    
-    <!-- Эффект помех поверх всего -->
-    <div id="interference"></div>
-    
-    <!-- Эффект сканирующих линий -->
-    <div id="scanlines"></div>
-    
-    <!-- Эффект виньетки (затемнение по краям) -->
-    <div id="vignette"></div>
+    <div class="container">
+        <h1>Бип - Буп</h1>
+        
+        <div class="score-container">
+            <span class="score" id="score">0</span>
+            <div class="score-animation" id="scoreAnimation">+1</div>
+        </div>
 
-    <div id="terminal">
-        <div id="output"></div>
-        <div id="input-line">
-            <span class="prompt">>_</span>
-            <input type="text" id="command-input" autocomplete="off" autocapitalize="off" spellcheck="false"/>
+        <button class="clicker-btn" id="clicker">
+            <span class="btn-text">КЛИКАЙ!</span>
+            <div class="click-effect"></div>
+        </button>
+
+        <div class="upgrades">
+            <div class="upgrade" id="autoClicker">
+                <h3>Автокликер (50 очков)</h3>
+                <p>Кликает автоматически каждую секунду</p>
+                <span class="count">0</span>
+            </div>
+            
+            <div class="upgrade" id="doubleClick">
+                <h3>Удвоитель (100 очков)</h3>
+                <p>+2 очка за клик вместо +1</p>
+                <span class="count">0</span>
+            </div>
         </div>
     </div>
 
-    <div id="splash-screen">
-        <h1 data-text="ЗВЁЗДНЫЙ СКИТАЛЕЦ">ЗВЁЗДНЫЙ СКИТАЛЕЦ</h1>
-        <p>> СИСТЕМА ЗАГРУЗКИ ИНИЦИИРОВАНА</p>
-        <p>> ПОДКЛЮЧЕНИЕ К СТАНЦИИ "ЭПСИЛОН"...</p>
-        <button id="start-btn">[ УСТАНОВИТЬ СВЯЗЬ ]</button>
-    </div>
+    <div class="particles-container" id="particles"></div>
 
-    <script src="sound.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
